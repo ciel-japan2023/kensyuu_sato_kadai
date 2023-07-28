@@ -1,0 +1,377 @@
+<html>
+
+<head>
+	<!-- htmlファイルと同じフォルダにあるjQuery.jsを読み込む -->
+	<script type="text/javascript" src="../common/jQuery.js"></script>
+	<!-- 文字コードをUTF-8に設定（文字化け防止） -->
+	<meta charset="UTF-8">
+	<!-- タイトル -->
+	<title>電卓</title>
+
+	<style>
+    	/* ここにCSSを書く */
+		input{
+			width: 275px;
+		}
+
+		button{
+			/* width: 15%;
+			height: 15%; */
+			width: 50px;
+			height: 50px;
+		}
+
+		display{
+			text-align: right;
+		}
+	</style>
+</head>
+
+<body>
+    <!-- ここに画面に表示する内容を書く -->
+	<div id="calculator">
+		<table>
+			<tr>
+				<td>
+					<input id="display" readonly text="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<!-- 戻るボタン -->
+					<button id="button_back">▷</button>
+
+					<!-- 7ボタン -->
+					<button id="button_7">7</button>
+
+					<!-- 8ボタン -->
+					<button id="button_8">8</button>
+
+					<!-- 9ボタン -->
+					<button id="button_9">9</button>
+
+					<!-- 割り算ボタン -->
+					<button id="button_division">÷</button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<!-- クリアボタン -->
+					<button id="button_c">C</button>
+
+					<!-- 4ボタン -->
+					<button id="button_4">4</button>
+
+					<!-- 5ボタン -->
+					<button id="button_5">5</button>
+
+					<!-- 6ボタン -->
+					<button id="button_6">6</button>
+
+					<!-- 掛け算ボタン -->
+					<button id="button_multiplication">×</button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<!-- オールクリアボタン -->
+					<button id="button_ac">AC</button>
+
+					<!-- 1ボタン -->
+					<button id="button_1">1</button>
+
+					<!-- 2ボタン -->
+					<button id="button_2">2</button>
+
+					<!-- 3ボタン -->
+					<button id="button_3">3</button>
+
+					<!-- 引き算ボタン -->
+					<button id="button_subtraction">-</button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<!-- 0ボタン -->
+					<button id="button_0">0</button>
+
+					<!-- 00ボタン -->
+					<button id="button_00">00</button>
+
+					<!-- ドットボタン -->
+				    <button id="button_dot">.</button>
+
+					<!-- 計算ボタン -->
+					<button id="button_calculation">=</button>
+
+					<!-- 足し算ボタン -->
+					<button id="button_addition">+</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	
+	<script>
+	    // ここにJavaScriptを書く
+	    //$("#display").val("12")
+	    let str = "";
+	    let display = $("#display").html()
+	    //eval関数用(計算結果)
+	    let eval_str = "";
+	    //戻るボタン用
+	    let count = 1;
+	    //ディスプレイ入力確認用
+	    let display_fake = ""
+	    //ボタン入力回数制限用
+	    let button_count = new Boolean(false);
+	    console.log("小数点ボタンを押した回数=" +  button_count)
+
+    	  //if(display =="."){
+		  //alert("値を入力し直してください")
+		  
+		  //}
+
+	     
+		// 0ボタン押下時の処理
+		$("#button_0").on("click", function(){
+		  button_count = 0;
+		  str  =  "0"
+		  display += str;
+		  
+		  display_fake += "0"
+		  $("#display").val(display_fake)
+		  console.log(display)
+		});
+
+		// 00ボタン押下時の処理
+		$("#button_00").on("click", function(){
+		  button_count = 0;
+		  str  =  "0"
+		  display += str + str
+		  
+		  display_fake += "0" + "0"
+		  $("#display").val(display_fake)
+		  console.log(display)		
+		});
+		 
+
+		// ドットボタン押下時の処理
+		$("#button_dot").on("click", function(){
+		 
+		  if(display == ""){
+		   alert("値を入力し直してください")
+		  }
+		   str  =  "."
+		  if(button_count == 1){
+		  display += str;
+		  display_fake += "."
+		  $("#display").val(display_fake)
+		  console.log(display)
+		  button_count = 0;
+          }else{
+          button_cout = 0;
+          alert("値を入力し直してください")
+          }
+          
+
+		});
+
+		// 1ボタン押下時の処理
+		$("#button_1").on("click", function(){
+		  button_count = 1;
+		  str =  "1"
+		  display += str;
+		  
+		  display_fake += "1"
+		  $("#display").val(display_fake)
+		  console.log(display)
+		  
+        });
+        
+		// 2ボタン押下時の処理
+		$("#button_2").on("click", function(){
+		  
+		  str =  "2"
+		  display += str;
+		  
+		  display_fake += "2"
+		  $("#display").val(display_fake)
+		  console.log(display)
+		  button_count = 1;
+		});
+
+		// 3ボタン押下時の処理
+		$("#button_3").on("click", function(){
+		  
+		  str =  "3"
+		  display += str;
+		  
+		  display_fake += "3"
+		  $("#display").val(display_fake)
+		  console.log(display)
+		  button_count = 1;
+		});
+
+		// 4ボタン押下時の処理
+		$("#button_4").on("click", function(){
+		  //button_count = 0;
+		  str =  "4"
+		  display += str;
+		  
+		  display_fake += "4"
+		  $("#display").val(display_fake)
+		  console.log(display)	
+		  button_count = 1;		
+		});
+
+		// 5ボタン押下時の処理
+		$("#button_5").on("click", function(){
+		  //button_count = 0;
+		  str =  "5"
+		  display += str;
+		  
+		  display_fake += "5"
+		  $("#display").val(display_fake)
+		  console.log(display)	
+		  button_count = 1;		
+		
+		});
+
+		// 6ボタン押下時の処理
+		$("#button_6").on("click", function(){
+		  //button_count = 0;
+		  str =  "6"
+		  display += str;
+        
+   		  display_fake += "6"
+		  $("#display").val(display_fake)
+		  console.log(display)			
+		  button_count = 1;
+		});
+
+		// 7ボタン押下時の処理
+		$("#button_7").on("click", function(){
+		  //button_count = 0;
+		  str =  "7"
+		  display += str;
+		  
+   		  display_fake += "7"
+		  $("#display").val(display_fake)
+		  console.log(display)	
+		  button_count = 1;		
+				
+		});
+
+		// 8ボタン押下時の処理
+		$("#button_8").on("click", function(){
+		  //button_count = 0;
+		  str =  "8"
+		  display += str;
+ 
+          display_fake += "8"
+		  $("#display").val(display_fake)
+		  console.log(display)			
+          button_count = 1;
+		
+		});
+
+		// 9ボタン押下時の処理
+		$("#button_9").on("click", function(){
+		  //button_count = 0;
+		  str =  "9"
+		  display += str;
+
+          display_fake += "9"
+		  $("#display").val(display_fake)
+		  console.log(display)			
+          button_count = 1;
+		});
+
+		// 足し算ボタン押下時の処理
+		$("#button_addition").on("click", function(){
+		   button_count = 0;
+		   str = "+"
+		   display += str;
+		   $("#display").val("")
+		   console.log(display)
+		   display_fake="";
+
+        });
+		// 引き算ボタン押下時の処理
+		$("#button_subtraction").on("click", function(){
+		     button_count = 0;
+		     str = "-"
+		     display += str;
+		     $("#display").val("")
+		     console.log(display)
+		     display_fake="";
+		});
+
+		// 掛け算ボタン押下時の処理
+		$("#button_multiplication").on("click", function(){
+		     button_count = 0;
+		     str = "*"
+		     display += str;
+		     $("#display").val("")
+		     console.log(display)
+		     display_fake="";
+		
+		});
+
+		// 割り算ボタン押下時の処理
+		$("#button_division").on("click", function(){
+		     button_count = 0;
+		     str = "/"
+		     display += str;
+		     $("#display").val("")
+		     console.log(display)
+		     display_fake="";
+		
+		
+		});
+
+		// 計算ボタン押下時の処理
+		$("#button_calculation").on("click", function(){
+		 eval_str = eval(display)
+		
+		  console.log(eval_str)
+		   $("#display").val(eval_str)
+		   
+		   display="";
+		   display_fake=""
+		   button_count = 0;
+		});
+
+		// 戻るボタン押下時の処理
+		$("#button_back").on("click", function(){
+		
+		  display = display.slice(0, -count)
+		  $("#display").val(display)
+		  
+		  display_fake = display_fake.slice(0, -count)
+		  $("#display").val(display_fake)
+        });
+
+		// クリアボタン押下時の処理
+		$("#button_c").on("click", function(){
+		 display = "";
+		 display_fake="";
+		 $("#display").val(display)
+		 $("#display").val(display_fake)
+		 button_count = 0;
+		});
+
+		// オールクリアボタン押下時の処理
+		$("#button_ac").on("click", function(){
+		 display = "";
+		 display_fake="";
+		 $("#display").val(display)
+		 $("#display").val(display_fake)
+		 button_count = 0;
+		});
+		
+	</script>
+</body>
+
+</html>

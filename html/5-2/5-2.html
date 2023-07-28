@@ -1,0 +1,24 @@
+<html>
+<head>
+    <script type="text/javascript" src="jQuery.js"></script>
+	<meta charset="UTF-8">
+	<title>練習問題</title>
+	<style>
+ 	</style>
+</head>
+<body>
+
+<input id="text" type="text" value="" />
+<input type="button" value="ボタン" onclick="buttonclick()" />
+<input type="button" value="クリアボタン" onclick="cleartext()" />
+<div id="outputtxt"></div>
+<script>
+function buttonclick(){
+ $("#outputtxt").text($("#text").val());
+}
+function cleartext(){
+ $("#outputtxt").text("");
+}
+</script>
+</body>
+</html>

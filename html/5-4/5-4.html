@@ -1,0 +1,30 @@
+<html>
+<head>
+    <script type="text/javascript" src="jQuery.js"></script>
+	<meta charset="UTF-8">
+	<title>練習問題</title>
+	<style>
+ 	</style>
+</head>
+<body>
+
+<input id="text1" type="text" value="" />
+＋
+<input id="text2" type="text" value="" />
+<input type="button" value="ボタン" onclick="buttonclick()" />
+<div id="outputtxt"></div>
+<script>
+function buttonclick(){
+   let var1 = parseInt($("#text1").val())
+   let var2 = parseInt($("#text2").val())
+   let sum = var1+var2
+   
+    if(isNaN(var1) || isNaN(var2)){
+      alert("数値以外が入力されています。")
+    }else{
+       $("#outputtxt").text(sum);
+    }
+}
+</script>
+</body>
+</html>

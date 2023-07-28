@@ -1,0 +1,18 @@
+変更前
+
+city              4079
+country           239
+countrylanguage   984
+
+
+ロシアの件数
+・select count(*) from city WHERE city.CountryCode = 'RUS';                                    189
+・select count(*) from country WHERE country.Code = 'RUS'                                      1
+・select count(*) from countrylanguage                                                         28
+  WHERE countrylanguage.Language = 'Russian' OR countrylanguage.CountryCode = 'RUS'            
+ 
+ 
+変更後
+city                    3890   (4079-189)
+country                 238    (239-1)
+countrylanguage         956    (984-28)

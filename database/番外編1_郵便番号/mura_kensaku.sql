@@ -1,0 +1,1 @@
+SELECT * FROM ken_aitchi_table WHERE prefectures_kanji AND municipality_kanji LIKE '%愛%';

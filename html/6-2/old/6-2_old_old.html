@@ -1,0 +1,179 @@
+<html>
+
+<head>
+	<!-- htmlファイルと同じフォルダにあるjQuery.jsを読み込む -->
+	<script type="text/javascript" src="../common/jQuery.js"></script>
+	<!-- 文字コードをUTF-8に設定（文字化け防止） -->
+	<meta charset="UTF-8">
+	<!-- タイトル -->
+	<title>電卓</title>
+
+	<style>
+    	/* ここにCSSを書く */
+		input{
+			width: 275px;
+		}
+
+		button{
+			/* width: 15%;
+			height: 15%; */
+			width: 50px;
+			height: 30px;
+		}
+
+		#display{
+			text-align: right;
+		}
+	</style>
+</head>
+
+<body>
+    <!-- ここに画面に表示する内容を書く -->
+	<div id="calculator">
+		<table>
+			<tr>
+				<td>
+					<input type="text" id="display" readonly value="" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<!-- 戻るボタン -->
+					<button onclick ="c_button(this.innerHTML)">▷</button>
+
+					<!-- 7ボタン -->
+					<button onclick ="n_button(this.innerHTML)">7</button>
+
+					<!-- 8ボタン -->
+					<button onclick ="n_button(this.innerHTML)">8</button>
+
+					<!-- 9ボタン -->
+					<button onclick ="n_button(this.innerHTML)">9</button>
+
+					<!-- 割り算ボタン -->
+					<button onclick ="o_button(this.innerHTML)">÷</button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<!-- クリアボタン -->
+					<button onclick ="c_button(this.innerHTML)">C</button>
+
+					<!-- 4ボタン -->
+					<button onclick ="n_button(this.innerHTML)">4</button>
+
+					<!-- 5ボタン -->
+					<button onclick ="n_button(this.innerHTML)">5</button>
+
+					<!-- 6ボタン -->
+					<button onclick ="n_button(this.innerHTML)">6</button>
+
+					<!-- 掛け算ボタン -->
+					<button onclick ="o_button(this.innerHTML)">×</button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<!-- オールクリアボタン -->
+					<button onclick ="c_button(this.innerHTML)">AC</button>
+
+					<!-- 1ボタン -->
+					<button onclick ="n_button(this.innerHTML)">1</button>
+
+					<!-- 2ボタン -->
+					<button onclick ="n_button(this.innerHTML)">2</button>
+
+					<!-- 3ボタン -->
+					<button onclick ="n_button(this.innerHTML)">3</button>
+
+					<!-- 引き算ボタン -->
+					<button onclick ="o_button(this.innerHTML)">-</button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<!-- 0ボタン -->
+					<button onclick ="n_button(this.innerHTML)">0</button>
+
+					<!-- 00ボタン -->
+					<button onclick ="n_button(this.innerHTML)">00</button>
+
+					<!-- ドットボタン -->
+					<button onclick ="n_button(this.innerHTML)">.</button>
+
+					<!-- 計算ボタン -->
+					<button onclick ="o_button(this.innerHTML)">=</button>
+
+					<!-- 足し算ボタン -->
+					<button onclick ="o_button(this.innerHTML)">+</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	
+	<script>
+	    // ここにJavaScriptを書く
+		// 0ボタン押下時の処理
+		$("#button_0").on("click", function(){});
+
+		// 00ボタン押下時の処理
+		$("#button_00").on("click", function(){});
+
+		// ドットボタン押下時の処理
+		$("#button_dot").on("click", function(){});
+
+		// 1ボタン押下時の処理
+		$("#button_1").on("click", function(){});
+
+		// 2ボタン押下時の処理
+		$("#button_2").on("click", function(){});
+
+		// 3ボタン押下時の処理
+		$("#button_3").on("click", function(){});
+
+		// 4ボタン押下時の処理
+		$("#button_4").on("click", function(){});
+
+		// 5ボタン押下時の処理
+		$("#button_5").on("click", function(){});
+
+		// 6ボタン押下時の処理
+		$("#button_6").on("click", function(){});
+
+		// 7ボタン押下時の処理
+		$("#button_7").on("click", function(){});
+
+		// 8ボタン押下時の処理
+		$("#button_8").on("click", function(){});
+
+		// 9ボタン押下時の処理
+		$("#button_9").on("click", function(){});
+
+		// 足し算ボタン押下時の処理
+		$("#button_addition").on("click", function(){});
+
+		// 引き算ボタン押下時の処理
+		$("#button_subtraction").on("click", function(){});
+
+		// 掛け算ボタン押下時の処理
+		$("#button_multiplication").on("click", function(){});
+
+		// 割り算ボタン押下時の処理
+		$("#button_division").on("click", function(){});
+
+		// 計算ボタン押下時の処理
+		$("#button_calculation").on("click", function(){});
+
+		// 戻るボタン押下時の処理
+		$("#button_back").on("click", function(){});
+
+		// クリアボタン押下時の処理
+		$("#button_c").on("click", function(){});
+
+		// オールクリアボタン押下時の処理
+		$("#button_ac").on("click", function(){});
+	</script>
+</body>
+
+</html>

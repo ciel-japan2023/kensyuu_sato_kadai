@@ -1,0 +1,100 @@
+<html>
+
+<head>
+	<!-- htmlファイルと同じフォルダにあるjQuery.jsを読み込む -->
+	<script type="text/javascript" src="jQuery.js"></script>
+	<!-- 文字コードをUTF-8に設定（文字化け防止） -->
+	<meta charset="UTF-8">
+	<!-- タイトル -->
+	<title>数字当てゲーム</title>
+
+	<style>
+    	/* ここにCSSを書く */
+
+		#top{
+			margin-bottom: 5%;
+		}
+
+		#history{
+			width: 50%;
+			height: 50%;
+			overflow-y: scroll;
+		}
+
+		#status{
+			margin-top: 5%;
+		}
+	</style>
+</head>
+
+<body>
+    <!-- ここに画面に表示する内容を書く -->
+	<div id="top">0~1000の間でランダムに生成された数字を当ててください。</div>
+	<label>入力された数字</label>
+	<div id="history">
+	</div>
+	
+	<div>
+		<label id="status">数字を入力してください。</label>
+		<br>
+		<input type="text"  id="text"/>
+		<input type="button" value="Go" onclick="buttonclick()" />
+	</div>
+	
+	
+	<script>
+	     
+	     var random = Math.floor( Math.random() * 1001 );
+	     let str = "";
+	     console.log(random);
+	     
+	     function buttonclick(){
+	       let str = "";
+	       let int = parseInt($("#text").val())
+	       var int_judge = document.getElementById("text").value
+	       var judge_number = int_judge.match(/^[0-9]/);
+	       let history = $("#history").html()
+	       
+	       $("#text").focus();
+	       
+	      //console.log(int + "だよん"); 
+	        $("#text").focus()
+	        
+	       if($("#text").val().length === 0){
+	          $("#status").text("数字を入力してください。").css('color', 'red');
+	          str += ""
+	          str += history;
+	        }else if(int == random){
+	          $("#status").text("数字を入力してください。").css('color', 'black');
+	          str  = int + " 正解です！！<br>"
+	          str += history;
+	          
+	          setTimeout(function(){
+              location.reload();
+              }, 2000);
+	          
+	        }else if(int > random){
+	          $("#status").text("数字を入力してください。").css('color', 'black');
+	          str  = int + " 大きいです<br>"
+	          str += history;
+	        }else if(int < random){
+	          $("#status").text("数字を入力してください。").css('color', 'black');
+	          str  = int + " 小さいです<br>"
+	          str += history;
+            }else{
+              $("#status").text("数字以外が入力されました。数字を入力してください。").css('color', 'red');
+               str += history;
+            }
+            $("#history").html(str)
+             console.log(str);
+             document.getElementById("text").value='';
+             
+           //while(int == random){
+           //str += "<br>"
+           //console.log(str);
+           //}
+        }
+	</script>
+</body>
+
+</html>
